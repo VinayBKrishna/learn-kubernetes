@@ -17,7 +17,8 @@ spec:
       command: ["sh", "-c"]
       args:
         - |
-          sleep 5 && \
-          echo ">>> Requesting from localhost:8080..." && \
-          wget -qO- http://localhost:8080 && \
+          for i in $(seq 1 10); do \
+            echo ">>> Attempt $i to connect to localhost:8080..." && \
+            wget -qO- http://localhost:8080 && break || sleep 1; \
+          done && \
           sleep 3600
