@@ -13,7 +13,7 @@ spec:
 #          mountPath: /usr/share/nginx/html
     - name: my-sidecar
       image: ubuntu:latest
-
+      command: ["sh", "-c", "tail -f /dev/null"]
 #      volumeMounts:
 #        - name: my-volume
 #          mountPath: /cachePOP
