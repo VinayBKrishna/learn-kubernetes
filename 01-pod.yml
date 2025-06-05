@@ -8,6 +8,11 @@ spec:
   containers:
     - name : my-container
       image: nginx:latest
+
       ports:
         - containerPort: 80
           protocol: TCP
+
+    - name: my-sidecar
+      image: busybox:latest
+      command: ["sh", "-c", " do echo 'Hello from sidecar'"]
