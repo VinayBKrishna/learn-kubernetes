@@ -1,4 +1,4 @@
-
+{
   "kind": "Node",
   "apiVersion": "v1",
   "metadata": {
@@ -8,7 +8,7 @@
     }
 
 
-  }
+  },
   lifecycle:
     "preStop": {
       "exec": {
@@ -20,3 +20,4 @@
       }
     }
   }
+}
