@@ -1,4 +1,4 @@
-{
+
   "kind": "Node",
   "apiVersion": "v1",
   "metadata": {
@@ -6,5 +6,17 @@
     "labels": {
       "name": "my-first-k8s-node"
     }
+
+
   }
-}
+  lifecycle:
+    "preStop": {
+      "exec": {
+        "command": [
+          "/bin/sh",
+          "-c",
+          "echo 'preStop hook executed'"
+        ]
+      }
+    }
+  }
