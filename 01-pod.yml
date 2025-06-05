@@ -15,4 +15,4 @@ spec:
 
     - name: my-sidecar
       image: busybox:latest
-      command: ["sh", "-c", " do echo 'Hello from sidecar'"]
+      command: ["sh", "-c", " echo 'Hello from sidecar'"]
