@@ -6,8 +6,8 @@ metadata:
     app: my-app
 spec:
   containers:
-    - name : my-container
+    - name: my-container
       image: nginx:latest
     - name: my-sidecar
       image: busybox:latest
-      command: ["sh", "-c", " echo 'Hello from sidecar'"]
+      command: ["sh", "-c", "echo Hello from sidecar"]
