@@ -5,6 +5,13 @@ metadata:
   labels:
     app: my-app
 spec:
+  initContainers:
+    - name: init-copy
+      image: busybox
+      command: [ "sh", "-c", "cp -r /usr/share/nginx/html/* /controalspace/" ]
+      volumeMounts:
+        - name: my-volume
+          mountPath: /controalspace
   containers:
     - name: my-container
       image: nginx:latest
