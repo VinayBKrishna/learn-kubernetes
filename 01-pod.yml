@@ -8,6 +8,9 @@ spec:
   containers:
     - name: my-container
       image: nginx:latest
+      ports:
+        - containerPort: 80
+          protocol: TCP
       volumeMounts:
         - name: my-volume
           mountPath: /usr/share/nginx/html
@@ -20,6 +23,3 @@ spec:
   volumes:
     - name: my-volume
       emptyDir: {}
-  ports:
-    - containerPort: 80
-      protocol: TCP
