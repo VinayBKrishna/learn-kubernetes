@@ -37,7 +37,7 @@ spec:
   metrics:
     - type: Resource
       resource:
-      name: cpu
-      target:
+        name: cpu
+        target:
           type: Utilization
           averageUtilization: 50
