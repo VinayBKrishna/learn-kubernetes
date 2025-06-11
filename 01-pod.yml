@@ -1,37 +1,43 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-config
-data:
-  thisIsTestENV_key: thisIsTestENV_value
----
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: frontend
+  name: nginx-deployment
   labels:
-    app: book
-    tier: frontend
+    app: nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      tier: frontend
+      app: nginx
   template:
     metadata:
       labels:
-        tier: frontend
+        app: nginx
     spec:
       containers:
-        - name: php-redis
-          image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
-          envFrom:
-            - configMapRef:
-                  name: frontend-config
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 200m
-              memory: 256Mi
+      - name: nginx
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+spec:
+  scaletargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+      name: cpu
+      target:
+          type: Utilization
+          averageUtilization: 50
