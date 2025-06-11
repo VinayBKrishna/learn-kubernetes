@@ -25,7 +25,7 @@ spec:
       containers:
         - name: php-redis
           image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
-      envFrom:
-        - configMapRef:
-              name: frontend-config
+          envFrom:
+            - configMapRef:
+                  name: frontend-config
 
