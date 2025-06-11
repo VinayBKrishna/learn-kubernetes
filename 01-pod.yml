@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+        image: progrium/stress
         resources:
           requests:
             cpu: "250m"
