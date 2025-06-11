@@ -1,4 +1,11 @@
 apiVersion: apps/v1
+kind: configMap
+metadata:
+  name: frontend-config
+data:
+  thisIsTestENV_key: thisIsTestENV_value
+---
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: frontend
@@ -21,10 +28,4 @@ spec:
       envFrom:
         - configMapRef:
               name: frontend-config
----
-apiVersion: apps/v1
-kind: configMap
-metadata:
-    name: frontend-config
-data:
-  thisIsTestENV_key: thisIsTestENV_value
+
