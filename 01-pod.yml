@@ -28,7 +28,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: nginx-hpa
 spec:
-  scaletargetRef:
+  scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: nginx-deployment
