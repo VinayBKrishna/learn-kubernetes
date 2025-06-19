@@ -1,4 +1,3 @@
 {{- define "common.labels" }}
-    labels:
-        component: frontend
+    component: frontend
 {{- end  }}
