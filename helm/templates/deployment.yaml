@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.component }}
   labels:
-    {{- template "common.labels" . | nindent 4 }}
+    {{- include "common.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
