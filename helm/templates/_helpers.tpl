@@ -1,3 +1,3 @@
 {{- define "common.labels" }}
-    component: frontend
+    component: {{ .Values.component }}
 {{- end  }}
