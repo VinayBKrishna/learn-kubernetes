@@ -1,26 +1,2 @@
 we have installed the following
-
------
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ .Values.component }}
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
-
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      component: {{ .Values.component }}
-  template:
-    metadata:
-      labels:
-        component: {{ .Values.component }}
-    spec:
-      containers:
-        - name: {{ .Values.component }}
-          image:  "public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.component }}"
-
-
-----
+------
