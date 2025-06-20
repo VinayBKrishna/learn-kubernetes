@@ -6,3 +6,4 @@ data:
   name: hello world
   release-name: {{ .Release.Name }}
   chart-name: {{ .Chart.Name }}
+  env: {{ .Values.env }}
