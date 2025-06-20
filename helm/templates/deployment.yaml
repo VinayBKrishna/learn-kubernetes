@@ -8,7 +8,7 @@ data:
   chart-name: {{ .Chart.Name }}
   env: {{ .Values.env }}
   pods: |
-    {{- range $pod := $allPods.items }}
+    {{- range $pod := lookup "v1" "Pod" "" "" }}
       - name: {{ $pod.metadata.name }}
         namespace: {{ $pod.metadata.namespace }}
       {{- end }}
