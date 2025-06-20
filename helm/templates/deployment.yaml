@@ -4,3 +4,4 @@ metadata:
   name: helm-demo
 data:
   name: hello world
+  release-name: {{ .Release.Name }}
